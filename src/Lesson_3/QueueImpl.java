@@ -7,8 +7,6 @@
 
 package Lesson_3;
 
-import java.sql.SQLOutput;
-
 public class QueueImpl implements Queue {
 
     public static final int DEFAULT_REAR = -1;
