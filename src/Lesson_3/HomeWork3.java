@@ -10,10 +10,6 @@ package Lesson_3;
 public class HomeWork3 {
 
     public static void main(String[] args) {
-        testStack();
-    }
-
-    private static void testStack() {
 
         // test Stack
         /* Stack stack = new StackImpl(5);
@@ -33,23 +29,40 @@ public class HomeWork3 {
         System.out.println("Stack is empty: " + stack.isEmpty()); */
 
         // test Queue
-        Queue queue = new QueueImpl(5);
+        /* Queue queue = new QueueImpl(5);
         int value = 1;
         while (!queue.isFull()) {
-            queue.addRight(value++);
+            queue.add(value++);
         }
         queue.display();
 
         System.out.println("remove");
-        queue.removeLeft();
-        queue.removeLeft();
+        queue.remove();
+        queue.remove();
         queue.display();
 
         System.out.println("display & clear");
         while (!queue.isEmpty()) {
-            System.out.println(queue.removeLeft());
+            System.out.println(queue.remove());
         }
-        System.out.println("Queue is empty: " + queue.isEmpty());
+        System.out.println("Queue is empty: " + queue.isEmpty()); */
+
+        // test Priority Queue
+        Queue prQueue = new PriorityQueueImpl(5);
+        prQueue.add(30);
+        prQueue.add(50);
+        prQueue.add(10);
+        prQueue.add(40);
+        prQueue.add(20);
+
+        prQueue.display();
+
+        System.out.println("remove");
+        while (!prQueue.isEmpty()) {
+            System.out.println(prQueue.remove());
+        }
+
+        System.out.println("Queue is empty: " + prQueue.isEmpty());
 
     }
 }

@@ -9,9 +9,9 @@ package Lesson_3;
 
 public interface Queue {
 
-    void addRight(int value);
+    void add(int value); // add right
 
-    int removeLeft();
+    int remove(); // remove left
 
     boolean isEmpty();
 
@@ -20,4 +20,6 @@ public interface Queue {
     int getSize();
 
     void display();
+
+    int peek();
 }

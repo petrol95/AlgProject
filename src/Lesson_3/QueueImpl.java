@@ -24,7 +24,7 @@ public class QueueImpl implements Queue {
     }
 
     @Override
-    public void addRight(int value) {
+    public void add(int value) {
         if (rear == data.length - 1)
             rear = DEFAULT_REAR;
         data[++rear] = value;
@@ -32,7 +32,7 @@ public class QueueImpl implements Queue {
     }
 
     @Override
-    public int removeLeft() {
+    public int remove() {
         int value = data[front++];
         if (front == data.length)
             front = DEFAULT_FRONT;
@@ -53,6 +53,11 @@ public class QueueImpl implements Queue {
     @Override
     public int getSize() {
         return size;
+    }
+
+    @Override
+    public int peek() {
+        return data[size - 1];
     }
 
     @Override
