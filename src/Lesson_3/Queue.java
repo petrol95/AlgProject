@@ -7,23 +7,17 @@
 
 package Lesson_3;
 
-public interface Stack {
+public interface Queue {
 
-    // adding
-    void push(int value);
+    void addRight(int value);
 
-    // removing
-    int pop();
-
-    // reading top element
-    int peek();
-
-    int getSize();
+    int removeLeft();
 
     boolean isEmpty();
 
     boolean isFull();
 
-    // printing
+    int getSize();
+
     void display();
 }

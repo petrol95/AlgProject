@@ -7,6 +7,8 @@
 
 package Lesson_3;
 
+import java.util.Arrays;
+
 public class StackImpl implements Stack {
 
     private int[] data;
@@ -49,8 +51,7 @@ public class StackImpl implements Stack {
 
     @Override
     public void display() {
-        for (int i = size - 1; i >= 0; i--) {
+        for (int i = size - 1; i >= 0; i--)
             System.out.println(data[i]);
-        }
     }
 }
