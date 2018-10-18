@@ -1,3 +1,7 @@
+package Lesson_2;
+
+import Lesson_2.MyArr;
+
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 

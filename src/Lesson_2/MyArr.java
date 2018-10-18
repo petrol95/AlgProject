@@ -1,3 +1,5 @@
+package Lesson_2;
+
 import java.util.Arrays;
 
 /**
@@ -36,7 +38,7 @@ public class MyArr {
 
     @Override
     public String toString() {
-        return "MyArr{" +
+        return "Lesson_2.MyArr{" +
                 "arr=" + Arrays.toString(arr) +
                 ", size=" + size +
                 '}';
