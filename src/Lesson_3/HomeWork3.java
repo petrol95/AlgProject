@@ -11,12 +11,15 @@ public class HomeWork3 {
 
     public static void main(String[] args) {
 
-        // test Stack
-        /* Stack stack = new StackImpl(5);
         int i = 1;
+
+        // test Stack
+        System.out.println("Test Stack");
+        Stack stack = new StackImpl(5);
         while (!stack.isFull()) {
             stack.push(i++);
         }
+        System.out.println("remove two items:");
         stack.pop();
         stack.pop();
         System.out.println("peek: " + stack.peek());
@@ -26,43 +29,75 @@ public class HomeWork3 {
         while (!stack.isEmpty()) {
             System.out.println(stack.pop());
         }
-        System.out.println("Stack is empty: " + stack.isEmpty()); */
+        System.out.println("Stack is empty: " + stack.isEmpty());
 
         // test Queue
-        /* Queue queue = new QueueImpl(5);
-        int value = 1;
+        System.out.println("\nTest Queue");
+        Queue queue = new QueueImpl(5);
+        i = 1;
         while (!queue.isFull()) {
-            queue.add(value++);
+            queue.add(i++);
         }
         queue.display();
-
-        System.out.println("remove");
+        System.out.println("remove two items:");
         queue.remove();
         queue.remove();
         queue.display();
-
-        System.out.println("display & clear");
+        System.out.println("display & clear:");
         while (!queue.isEmpty()) {
             System.out.println(queue.remove());
         }
-        System.out.println("Queue is empty: " + queue.isEmpty()); */
+        System.out.println("Queue is empty: " + queue.isEmpty());
 
         // test Priority Queue
+        System.out.println("\nTest Priority Queue");
         Queue prQueue = new PriorityQueueImpl(5);
         prQueue.add(30);
         prQueue.add(50);
         prQueue.add(10);
         prQueue.add(40);
         prQueue.add(20);
-
         prQueue.display();
-
-        System.out.println("remove");
+        System.out.println("remove all items:");
         while (!prQueue.isEmpty()) {
             System.out.println(prQueue.remove());
         }
-
         System.out.println("Queue is empty: " + prQueue.isEmpty());
 
+        // test String convertion
+        System.out.println("\nTest String convertion");
+        String in = "porosenok";
+        System.out.println("original string: " + in);
+        System.out.println("convertion: " + new Convertion(in).convertString());
+
+        // test MyDeque
+        System.out.println("\nTest MyDeque");
+        MyDeque deque = new MyDeque(5);
+        i = 1;
+        while (!deque.isFull()) {
+           deque.addRight(i++);
+         }
+        deque.display();
+        System.out.println("remove left two items:");
+        deque.removeLeft();
+        deque.removeLeft();
+        deque.display();
+        System.out.println("add left two items:");
+        deque.addLeft(2);
+        deque.addLeft(1);
+        deque.display();
+        System.out.println("remove right two items:");
+        deque.removeRight();
+        deque.removeRight();
+        deque.display();
+        System.out.println("add right two items:");
+        deque.addRight(4);
+        deque.addRight(5);
+        deque.display();
+        System.out.println("display & clear:");
+        while (!deque.isEmpty()) {
+            System.out.println(deque.removeLeft());
+        }
+        System.out.println("Deque is empty: " + deque.isEmpty());
     }
 }

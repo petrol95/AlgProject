@@ -25,7 +25,7 @@ public class PriorityQueueImpl implements Queue {
         else {
             for (i = size - 1; i >= 0 ; i--)
                 if (value > data[i])
-                    data [i + 1] = data [i];
+                    data[i + 1] = data[i];
                 else
                     break;
             data[i + 1] = value;
