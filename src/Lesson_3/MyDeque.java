@@ -11,13 +11,10 @@ public class MyDeque extends QueueImpl {
     }
 
     public void addLeft(int value) {
-        if (front != DEFAULT_FRONT) {
-            data[--front] = value;
-            size++;
-        } else {
-            System.out.println("impossible");
-            throw new ArrayIndexOutOfBoundsException();
-        }
+        if (front == DEFAULT_FRONT)
+            front = data.length;
+        data[--front] = value;
+        size++;
     }
 
     public int removeLeft() {
@@ -25,13 +22,10 @@ public class MyDeque extends QueueImpl {
     }
 
     public int removeRight() {
-        if (rear != DEFAULT_REAR) {
-            size--;
-            return data[--rear];
-        } else {
-            System.out.println("impossible");
-            throw new ArrayIndexOutOfBoundsException();
-        }
+        if (rear == DEFAULT_REAR)
+            rear = data.length;
+        size--;
+        return data[--rear];
     }
 
     @Override
@@ -54,8 +48,9 @@ public class MyDeque extends QueueImpl {
         return super.peek();
     }
 
-    @Override
-    public void display() {
-        super.display();
+    public void removeAndDisplay() {
+        while (!isEmpty()) {
+            System.out.println(removeLeft());
+        }
     }
 }

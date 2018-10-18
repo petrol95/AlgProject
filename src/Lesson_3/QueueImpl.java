@@ -60,7 +60,6 @@ public class QueueImpl implements Queue {
         return data[size - 1];
     }
 
-    @Override
     public void display() {
         int currentSize = size;
         int currentFront = front;

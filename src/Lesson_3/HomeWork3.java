@@ -72,32 +72,19 @@ public class HomeWork3 {
 
         // test MyDeque
         System.out.println("\nTest MyDeque");
-        MyDeque deque = new MyDeque(5);
-        i = 1;
-        while (!deque.isFull()) {
-           deque.addRight(i++);
-         }
-        deque.display();
-        System.out.println("remove left two items:");
-        deque.removeLeft();
-        deque.removeLeft();
-        deque.display();
-        System.out.println("add left two items:");
-        deque.addLeft(2);
-        deque.addLeft(1);
-        deque.display();
+        MyDeque deque = new MyDeque(6);
+        deque.addRight(1);
+        deque.addRight(2);
+        deque.addRight(3);
+        deque.addRight(4);
+        System.out.println("add left two items");
+        deque.addLeft(5);
+        deque.addLeft(6);
         System.out.println("remove right two items:");
         deque.removeRight();
         deque.removeRight();
-        deque.display();
-        System.out.println("add right two items:");
-        deque.addRight(4);
-        deque.addRight(5);
-        deque.display();
-        System.out.println("display & clear:");
-        while (!deque.isEmpty()) {
-            System.out.println(deque.removeLeft());
-        }
+        System.out.println("remove & display:");
+        deque.removeAndDisplay();
         System.out.println("Deque is empty: " + deque.isEmpty());
     }
 }
