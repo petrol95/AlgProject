@@ -2,7 +2,7 @@ package Lesson_4;
 
 public interface LinkedList {
 
-    void add (int value);
+    void add(int value);
 
     Link remove();
 
@@ -12,7 +12,7 @@ public interface LinkedList {
 
     Link search(int value);
 
-    Link remove (int value);
+    Link remove(int value);
 
     void display();
 }

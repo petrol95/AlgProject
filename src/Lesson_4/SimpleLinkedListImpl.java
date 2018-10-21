@@ -2,8 +2,8 @@ package Lesson_4;
 
 public class SimpleLinkedListImpl implements LinkedList {
 
-    private Link firstElement;
-    private int size;
+    protected Link firstElement;
+    protected int size;
 
     public SimpleLinkedListImpl() {
         this.size = 0;
