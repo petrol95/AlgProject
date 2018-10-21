@@ -1,8 +1,8 @@
 package Lesson_4;
 
-public interface List {
+public interface LinkedList {
 
-    void add (Link value);
+    void add (int value);
 
     Link remove();
 
@@ -14,4 +14,5 @@ public interface List {
 
     Link remove (int value);
 
+    void display();
 }
