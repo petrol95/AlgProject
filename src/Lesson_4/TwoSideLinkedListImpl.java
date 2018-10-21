@@ -1,5 +1,12 @@
 package Lesson_4;
 
+/**
+ * Algorithms and data structures. Lesson 4.
+ *
+ * @author Olga Petrova
+ * @version dated Oct 22, 2018
+ */
+
 public class TwoSideLinkedListImpl extends SimpleLinkedListImpl implements TwoSideLinkedList {
 
     private Link lastElement;

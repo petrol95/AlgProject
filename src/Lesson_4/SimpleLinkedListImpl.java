@@ -1,5 +1,12 @@
 package Lesson_4;
 
+/**
+ * Algorithms and data structures. Lesson 4.
+ *
+ * @author Olga Petrova
+ * @version dated Oct 22, 2018
+ */
+
 public class SimpleLinkedListImpl implements LinkedList {
 
     protected Link firstElement;
@@ -15,6 +22,11 @@ public class SimpleLinkedListImpl implements LinkedList {
         link.setNext(firstElement);
         firstElement = link;
         size++;
+    }
+
+    @Override
+    public Link getFirstElement() {
+        return firstElement;
     }
 
     @Override

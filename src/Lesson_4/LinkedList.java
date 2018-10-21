@@ -1,5 +1,12 @@
 package Lesson_4;
 
+/**
+ * Algorithms and data structures. Lesson 4.
+ *
+ * @author Olga Petrova
+ * @version dated Oct 22, 2018
+ */
+
 public interface LinkedList {
 
     void add(int value);
@@ -15,4 +22,6 @@ public interface LinkedList {
     Link remove(int value);
 
     void display();
+
+    Link getFirstElement();
 }

@@ -2,6 +2,13 @@ package Lesson_4;
 
 import java.util.Objects;
 
+/**
+ * Algorithms and data structures. Lesson 4.
+ *
+ * @author Olga Petrova
+ * @version dated Oct 22, 2018
+ */
+
 public class Link {
 
     private final int data;
