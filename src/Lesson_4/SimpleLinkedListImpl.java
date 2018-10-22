@@ -12,6 +12,7 @@ public class SimpleLinkedListImpl implements LinkedList {
     protected Link firstElement;
     protected int size;
 
+
     public SimpleLinkedListImpl() {
         this.size = 0;
     }
@@ -27,6 +28,11 @@ public class SimpleLinkedListImpl implements LinkedList {
     @Override
     public Link getFirstElement() {
         return firstElement;
+    }
+
+    @Override
+    public void setFirstElement(Link firstElement) {
+        this.firstElement = firstElement;
     }
 
     @Override
@@ -93,5 +99,10 @@ public class SimpleLinkedListImpl implements LinkedList {
         }
 
         System.out.println();
+    }
+
+    @Override
+    public LinkIteratorImpl getIterator() {
+        return new LinkIteratorImpl(this);
     }
 }

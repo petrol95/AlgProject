@@ -24,4 +24,8 @@ public interface LinkedList {
     void display();
 
     Link getFirstElement();
+
+    void setFirstElement(Link element);
+
+    LinkIteratorImpl getIterator();
 }
