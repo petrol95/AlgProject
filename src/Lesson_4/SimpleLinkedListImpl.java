@@ -1,5 +1,7 @@
 package Lesson_4;
 
+import java.util.Iterator;
+
 /**
  * Algorithms and data structures. Lesson 4.
  *
@@ -7,7 +9,7 @@ package Lesson_4;
  * @version dated Oct 22, 2018
  */
 
-public class SimpleLinkedListImpl implements LinkedList {
+public class SimpleLinkedListImpl implements LinkedList, Iterable<Integer> {
 
     protected Link firstElement;
     protected int size;
@@ -104,5 +106,12 @@ public class SimpleLinkedListImpl implements LinkedList {
     @Override
     public LinkIteratorImpl getIterator() {
         return new LinkIteratorImpl(this);
+    }
+
+    @Override
+    public Iterator<Integer> iterator() {
+        java.util.LinkedList<Integer> linkedList = new java.util.LinkedList<>();
+        Iterator<Integer> iterator = linkedList.iterator();
+        return iterator;
     }
 }

@@ -1,5 +1,7 @@
 package Lesson_4;
 
+import java.util.Iterator;
+
 /**
  * Algorithms and data structures. Lesson 4.
  *
@@ -28,4 +30,5 @@ public interface LinkedList {
     void setFirstElement(Link element);
 
     LinkIteratorImpl getIterator();
+
 }

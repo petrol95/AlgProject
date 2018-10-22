@@ -114,6 +114,12 @@ public class HomeWork4 {
         iter.deleteCurrent();
         newList.display();
 
+        // test foreach
+        SimpleLinkedListImpl testList = new SimpleLinkedListImpl();
+        System.out.println("test foreach");
+        for (Object value : testList)
+            System.out.println(value);
+
     }
 
     private static void testIterator() {
