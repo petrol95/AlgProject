@@ -1,5 +1,7 @@
 package Lesson_4;
 
+import java.util.Iterator;
+
 /**
  * Algorithms and data structures. Lesson 4.
  *
@@ -7,7 +9,7 @@ package Lesson_4;
  * @version dated Oct 22, 2018
  */
 
-public interface LinkIterator {
+public interface LinkIterator extends Iterator {
 
     void reset();
 
@@ -23,4 +25,9 @@ public interface LinkIterator {
 
     int deleteCurrent();
 
+    @Override
+    boolean hasNext();
+
+    @Override
+    Link next();
 }

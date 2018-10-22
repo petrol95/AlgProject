@@ -9,7 +9,7 @@ import java.util.Iterator;
  * @version dated Oct 22, 2018
  */
 
-public class SimpleLinkedListImpl implements LinkedList, Iterable<Integer> {
+public class SimpleLinkedListImpl implements LinkedList, Iterable {
 
     protected Link firstElement;
     protected int size;
@@ -109,9 +109,8 @@ public class SimpleLinkedListImpl implements LinkedList, Iterable<Integer> {
     }
 
     @Override
-    public Iterator<Integer> iterator() {
-        java.util.LinkedList<Integer> linkedList = new java.util.LinkedList<>();
-        Iterator<Integer> iterator = linkedList.iterator();
-        return iterator;
+    public Iterator iterator() {
+        return this.getIterator();
     }
+
 }

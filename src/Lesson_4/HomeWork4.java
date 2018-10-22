@@ -19,6 +19,7 @@ public class HomeWork4 {
     public static void main(String[] args) {
 
         // Test LinkedList
+        System.out.println("\nTest LinkedList");
         // LinkedList list = new SimpleLinkedListImpl();
         // LinkedList list = new TwoSideLinkedListImpl();
         TwoSideLinkedList list = new TwoSideLinkedListImpl();
@@ -44,7 +45,7 @@ public class HomeWork4 {
         }
 
         // Test Stack
-        System.out.println("test Stack");
+        System.out.println("\nTest Stack");
 
         Stack stack = new LinkedStackImpl();
 
@@ -68,7 +69,7 @@ public class HomeWork4 {
         System.out.println("Stack is empty: " + stack.isEmpty());
 
         // test Queue
-        System.out.println("test Queue");
+        System.out.println("\nTest Queue");
         Queue queue = new LinkedQueueImpl();
         queue.add(1);
         queue.add(2);
@@ -89,7 +90,7 @@ public class HomeWork4 {
         System.out.println("Queue is empty: " + queue.isEmpty());
 
         // test Iterator
-        System.out.println("test Iterator");
+        System.out.println("Test Iterator");
         testIterator();
 
         // test Link Iterator
@@ -116,7 +117,12 @@ public class HomeWork4 {
 
         // test foreach
         SimpleLinkedListImpl testList = new SimpleLinkedListImpl();
-        System.out.println("test foreach");
+        System.out.println("\nTest foreach");
+        testList.add(1);
+        testList.add(2);
+        testList.add(3);
+        testList.add(4);
+        testList.add(5);
         for (Object value : testList)
             System.out.println(value);
 

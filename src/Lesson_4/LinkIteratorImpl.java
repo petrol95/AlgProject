@@ -1,5 +1,7 @@
 package Lesson_4;
 
+import java.util.Iterator;
+
 /**
  * Algorithms and data structures. Lesson 4.
  *
@@ -40,6 +42,7 @@ public class LinkIteratorImpl implements LinkIterator {
         return currentElement;
     }
 
+
     @Override
     public void insertAfter(int value) {
         Link link = new Link(value);
@@ -60,7 +63,7 @@ public class LinkIteratorImpl implements LinkIterator {
         if (previousElement == null) {
             link.setNext(list.getFirstElement());
             list.setFirstElement(link);
-            reset ();
+            reset();
         } else {
             link.setNext(previousElement.getNext());
             previousElement.setNext(link);
@@ -84,6 +87,15 @@ public class LinkIteratorImpl implements LinkIterator {
         return value;
     }
 
+    @Override
+    public boolean hasNext() {
+        return (currentElement != null);
+    }
 
+    @Override
+    public Link next() {
+        nextLink();
+        return previousElement;
+    }
 
 }
