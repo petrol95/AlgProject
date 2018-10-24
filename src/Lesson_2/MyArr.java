@@ -10,8 +10,8 @@ import java.util.Arrays;
  */
 
 public class MyArr {
-    private int[] arr;
-    private int size;
+    protected int[] arr;
+    protected int size;
 
     public MyArr(int size) {
         this.size = 0;
@@ -36,16 +36,32 @@ public class MyArr {
         this.size++;
     }
 
+    protected boolean isFull() {
+        return arr.length == size;
+    }
+
+    protected boolean isEmpty() {
+        return size == 0;
+    }
+
+
     @Override
     public String toString() {
-        return "Lesson_2.MyArr{" +
-                "arr=" + Arrays.toString(arr) +
+        return "{" + Arrays.toString(arr) +
                 ", size=" + size +
                 '}';
     }
 
     // Insertion element into a sorted array
-    public void insert(int value) {
+    public boolean insert(int value) {
+        if (isEmpty()) {
+            arr[size++] = value;
+            return true;
+        }
+
+        if (isFull())
+            return false;
+
         int i;
         for (i = 0; i < this.size; i++) {
             if (this.arr[i] > value)
@@ -56,6 +72,7 @@ public class MyArr {
         }
         this.arr[i] = value;
         this.size++;
+        return true;
     }
 
     // Deletion element from a sorted array
@@ -82,20 +99,20 @@ public class MyArr {
     }
 
     // Binary search
-    public boolean binaryFind(int value) {
+    protected int binaryFind(int value) {
         int low = 0;
         int high = this.size - 1;
         int mid;
         while (low < high) {
             mid = (low + high) / 2;
             if (this.arr[mid] == value)
-                return true;
+                return mid;
             else if (value < this.arr[mid])
-                high = mid;
+                high = mid - 1;
             else
                 low = mid + 1;
         }
-        return false;
+        return -1;
     }
 
     private void change(int i, int j) {

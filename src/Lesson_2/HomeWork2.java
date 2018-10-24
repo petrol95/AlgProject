@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 
 public class HomeWork2 {
 
-    final static int SIZE = 100000;
+    final static int SIZE = 10000;
 
     public static void main(String[] args) {
 
