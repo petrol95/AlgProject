@@ -6,7 +6,7 @@ import java.util.Arrays;
  * Algorithms and data structures. Lesson 2.
  *
  * @author Olga Petrova
- * @version dated Oct 14, 2018
+ * @version dated Oct 24, 2018
  */
 
 public class MyArr {
