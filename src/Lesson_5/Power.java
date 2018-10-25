@@ -19,7 +19,7 @@ public class Power {
 
     private static float power(int n, int exp) {
         if (n == 0 && exp == 0) {
-            System.out.println("undetermined");
+            System.out.println("undetermined value");
             return -1;
         }
         if (n == 1)

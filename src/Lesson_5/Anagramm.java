@@ -33,7 +33,7 @@ public class Anagramm {
     private void getAnagramm(int newSize) {
         if (newSize == 1)
             return;
-        for (int i = 0; i < newSize ; i++) {
+        for (int i = 0; i < newSize; i++) {
             getAnagramm(newSize - 1);
             if (newSize == 2)
                 display();
