@@ -9,12 +9,12 @@ import java.util.concurrent.TimeUnit;
  * Algorithms and data structures. Lesson 2.
  *
  * @author Olga Petrova
- * @version dated Oct 14, 2018
+ * @version dated Oct 24, 2018
  */
 
 public class HomeWork2 {
 
-    final static int SIZE = 100000;
+    final static int SIZE = 10000;
 
     public static void main(String[] args) {
 
