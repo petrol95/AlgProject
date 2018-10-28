@@ -17,7 +17,7 @@ public class RecurrentSortedArray extends MyArr {
 
     @Override
     protected int binaryFind(int value) {
-        return super.binaryFind(value);
+        return binaryFind(value, 0, size - 1);
     }
 
     private int binaryFind(int value, int low, int high) {
