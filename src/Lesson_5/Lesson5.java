@@ -23,7 +23,7 @@ public class Lesson5 {
 
         //System.out.println(factorial(n));
 
-        File rootDir = new File("D:\\petrova_oa\\Desktop\\GB\\Алгоритмы\\Lesson_5");
+        File rootDir = new File("C:\\GeekBrains\\Алгоритмы\\Lesson_5");
         viewDir(rootDir, "");
     }
 
