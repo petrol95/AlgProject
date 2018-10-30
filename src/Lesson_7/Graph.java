@@ -126,4 +126,41 @@ public class Graph {
         queue.add(vertex);
     }
 
+    public LinkedList findShortcut (String startLabel, String endLabel) {
+
+        Vertex startVertex = findVertex(startLabel);
+        Vertex endVertex = findVertex(endLabel);
+
+        if (startVertex == null) {
+            throw new IllegalArgumentException("Invalid startLabel: " + startLabel);
+        }
+
+        if (endVertex == null) {
+            throw new IllegalArgumentException("Invalid endLabel: " + endLabel);
+        }
+
+        Vertex currentVertex = startVertex;
+
+        LinkedList<Vertex> cut  = new LinkedList();
+
+        Queue<Vertex> queue = new ArrayDeque();
+        visitVertex(currentVertex, queue);
+
+        while (!queue.isEmpty()) {
+            currentVertex = getAdjUnvisitedVertex(queue.peek());
+
+            if (currentVertex == null) {
+                cut.add(queue.remove());
+                if (cut.peekLast() == endVertex) {
+                    break;
+                }
+            }
+            else {
+                visitVertex(currentVertex, queue);
+            }
+        }
+        clearVertexes();
+        return cut;
+    }
+
 }
