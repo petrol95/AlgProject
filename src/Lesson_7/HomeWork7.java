@@ -27,6 +27,6 @@ public class HomeWork7 {
         graph.addEdge("Саратов", "Воронеж");
         graph.addEdge("Курск", "Воронеж");
 
-        System.out.println(graph.findShortcut("Москва", "Воронеж"));
+        System.out.println("Best cut = " + graph.findShortcut("Москва", "Воронеж"));
     }
 }

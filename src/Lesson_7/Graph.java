@@ -141,7 +141,7 @@ public class Graph {
 
         LinkedList<LinkedList> cuts = new LinkedList<>();
         cuts.add(new LinkedList());
-        cuts.getLast().add(startVertex);
+        cuts.getLast().add(startVertex.getLabel());
 
         LinkedList bestList = cuts.getLast();
 
@@ -158,42 +158,46 @@ public class Graph {
         while (!queue.isEmpty()) {
             parentVertex = queue.peek();
             currentVertex = getAdjUnvisitedVertex(parentVertex);
-            if (currentVertex == endVertex) {
-                for (LinkedList list : cuts) {
-                    if (list.indexOf(parentVertex) != -1)
-                        list.add(currentVertex);
-                }
-                break;
-            }
+            boolean pr = false;
 
             if (currentVertex == null) {
                 queue.remove();
             }
             else {
-                visitVertex(currentVertex, queue);
-                for (LinkedList list : cuts) {
+                String currentLabel = currentVertex.getLabel();
+                String parentLabel = parentVertex.getLabel();
 
-                    if (parentVertex == startVertex) {
-                        cuts.add(new LinkedList());
-                        cuts.getLast().add(startVertex);
-                    } else {
-                        if (list.indexOf(parentVertex) != -1)
-                            list.add(currentVertex);
-                        else {
-                            cuts.add(new LinkedList());
-                            cuts.getLast().add(parentVertex);
-                            cuts.getLast().add(currentVertex);
+                if (currentLabel == endLabel) {
+                    for (LinkedList cut : cuts) {
+                        if (cut.getLast() == parentLabel) {
+                            cut.add(currentLabel);
+                            break;
                         }
                     }
+                    break;
                 }
+
+                for (LinkedList cut : cuts) {
+                    if (cut.getLast() == parentLabel) {
+                        cut.add(currentLabel);
+                        pr = true;
+                        break;
+                    }
+                }
+                if (!pr) {
+                    cuts.add(new LinkedList());
+                    cuts.getLast().add(parentLabel);
+                    cuts.getLast().add(currentLabel);
+                }
+                visitVertex(currentVertex, queue);
             }
         }
         clearVertexes();
-        for (LinkedList list : cuts) {
+        for (LinkedList cut : cuts) {
             System.out.println("--------");
-            System.out.println(list);
-            if (list.indexOf(endVertex) != -1)
-                bestList = list;
+            System.out.println(cut);
+            if (cut.getLast() == endLabel)
+                bestList = cut;
         }
         return bestList;
     }
