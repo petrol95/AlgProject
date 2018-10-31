@@ -126,88 +126,81 @@ public class Graph {
         queue.add(vertex);
     }
 
+    // find the shortest route
     public LinkedList findShortcut (String startLabel, String endLabel) {
 
         Vertex startVertex = findVertex(startLabel);
         Vertex endVertex = findVertex(endLabel);
+        LinkedList<LinkedList> cuts = new LinkedList<>();  // list of routes
+        Vertex currentVertex;
+        Vertex parentVertex;
+        String currentLabel;
+        String parentLabel;
 
-        if (startVertex == null) {
+        // Boundary values
+        if (startVertex == null)
             throw new IllegalArgumentException("Invalid startLabel: " + startLabel);
-        }
 
-        if (endVertex == null) {
+        if (endVertex == null)
             throw new IllegalArgumentException("Invalid endLabel: " + endLabel);
-        }
 
-        LinkedList<LinkedList> cuts = new LinkedList<>();
+        // Initial cut
         cuts.add(new LinkedList());
-        cuts.getLast().add(startVertex.getLabel());
+        cuts.getLast().add(startLabel);
 
-        LinkedList bestList = cuts.getLast();
-
+        // Nullable route
         if (startLabel == endLabel) {
-            return bestList;
+            return cuts.getLast();
         }
 
-        Vertex currentVertex = startVertex;
-        Vertex parentVertex = startVertex;
-
+        // Breadth-first search with cuts
         Queue<Vertex> queue = new ArrayDeque();
-        visitVertex(currentVertex, queue);
+        visitVertex(startVertex, queue);
 
         while (!queue.isEmpty()) {
+
+            currentVertex = getAdjUnvisitedVertex(queue.peek());
             parentVertex = queue.peek();
-            currentVertex = getAdjUnvisitedVertex(parentVertex);
-            boolean pr = false;
 
-            if (currentVertex == null) {
+             if (currentVertex == null)
                 queue.remove();
-            }
-            else {
-                String currentLabel = currentVertex.getLabel();
-                String parentLabel = parentVertex.getLabel();
+             else {
+                 currentLabel = currentVertex.getLabel();
+                 parentLabel = parentVertex.getLabel();
 
-                if (currentLabel == endLabel) {
-                    for (LinkedList cut : cuts) {
-                        if (cut.getLast() == parentLabel) {
-                            cut.add(currentLabel);
-                            break;
-                        }
-                    }
-                    break;
-                }
+                 createNewCut(cuts, currentLabel, parentLabel);
 
-                for (LinkedList cut : cuts) {
-                    if (cut.getLast() == parentLabel) {
-                        cut.add(currentLabel);
-                        pr = true;
-                        break;
-                    }
-                }
-                if (!pr) {
-                    /*LinkedList tempList = new LinkedList();
-                    for (LinkedList cut : cuts) {
-                        if (cut.getLast() == parentLabel) {
-                            tempList.addAll(cut);
-                            break;
-                        }
-                    }*/
-                    cuts.add(new LinkedList());
-                    // cuts.getLast().addAll(tempList);
-                    cuts.getLast().add(parentLabel);
-                    cuts.getLast().add(currentLabel);
-                }
-                visitVertex(currentVertex, queue);
+                 if (currentLabel == endLabel) // find the best cut
+                     break;
+
+                 visitVertex(currentVertex, queue);
             }
         }
         clearVertexes();
-        for (LinkedList cut : cuts) {
+
+        /*for (LinkedList cut : cuts) {
             System.out.println("--------");
             System.out.println(cut);
-            if (cut.getLast() == endLabel)
-                bestList = cut;
+        }*/
+
+        return getCut(cuts, endLabel);
+    }
+
+    private void createNewCut(LinkedList<LinkedList> cuts, String currentLabel, String parentLabel) {
+        LinkedList tempList = new LinkedList();
+        tempList = getCut(cuts, parentLabel);
+        cuts.add(new LinkedList());
+        cuts.getLast().addAll(tempList);
+        cuts.getLast().add(currentLabel);
+    }
+
+    private LinkedList getCut(LinkedList<LinkedList> cuts, String label) {
+        for (LinkedList cut : cuts) {
+            if (cut.getLast() == label) {
+                return cut;
+            }
         }
-        return bestList;
+        return null;
     }
 
 }
