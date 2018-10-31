@@ -185,9 +185,21 @@ public class Graph {
                     }
                 }
                 if (!pr) {
+                    /*LinkedList tempList = new LinkedList();
+                    for (LinkedList cut : cuts) {
+                        if (cut.getLast() == parentLabel) {
+                            tempList.addAll(cut);
+                            break;
+                        }
+                    }*/
                     cuts.add(new LinkedList());
-                    cuts.getLast().add(parentLabel);
-                    cuts.getLast().add(currentLabel);
+                    // cuts.getLast().addAll(tempList);
+                    if (parentLabel == startLabel) {
+                        cuts.getLast().add(parentLabel);
+                        cuts.getLast().add(currentLabel);
+                    } else {
+
+                    }
                 }
                 visitVertex(currentVertex, queue);
             }

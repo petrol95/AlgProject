@@ -15,7 +15,7 @@ public class HomeWork7 {
         graph.addVertex("Курск");
         graph.addVertex("Воронеж");
 
-        graph.addEdge("Москва", "Тула");
+        /*graph.addEdge("Москва", "Тула");
         graph.addEdge("Москва", "Рязань");
         graph.addEdge("Москва", "Калуга");
         graph.addEdge("Тула", "Липецк");
@@ -25,7 +25,18 @@ public class HomeWork7 {
         graph.addEdge("Тамбов", "Саратов");
         graph.addEdge("Орел", "Курск");
         graph.addEdge("Саратов", "Воронеж");
-        graph.addEdge("Курск", "Воронеж");
+        graph.addEdge("Курск", "Воронеж");*/
+
+        graph.addEdge("Москва", "Тула");
+        graph.addEdge("Тула", "Липецк");
+        graph.addEdge("Липецк", "Рязань");
+        graph.addEdge("Рязань", "Воронеж");
+        graph.addEdge("Москва", "Саратов");
+        graph.addEdge("Саратов", "Тамбов");
+        graph.addEdge("Саратов", "Калуга");
+        graph.addEdge("Тамбов", "Воронеж");
+        graph.addEdge("Калуга", "Орел");
+        graph.addEdge("Орел", "Воронеж");
 
         System.out.println("Best cut = " + graph.findShortcut("Москва", "Воронеж"));
     }
