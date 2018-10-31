@@ -1,5 +1,7 @@
 package Lesson_7;
 
+import java.util.Objects;
+
 public class Vertex {
 
     private final String label;
@@ -24,6 +26,14 @@ public class Vertex {
 
     public void setWasVisited(boolean wasVisited) {
         this.wasVisited = wasVisited;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Vertex vertex = (Vertex) o;
+        return Objects.equals(label, vertex.label);
     }
 
 }

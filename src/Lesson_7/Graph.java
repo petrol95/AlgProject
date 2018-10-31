@@ -139,28 +139,63 @@ public class Graph {
             throw new IllegalArgumentException("Invalid endLabel: " + endLabel);
         }
 
-        Vertex currentVertex = startVertex;
+        LinkedList<LinkedList> cuts = new LinkedList<>();
+        cuts.add(new LinkedList());
+        cuts.getLast().add(startVertex);
 
-        LinkedList<Vertex> cut  = new LinkedList();
+        LinkedList bestList = cuts.getLast();
+
+        if (startLabel == endLabel) {
+            return bestList;
+        }
+
+        Vertex currentVertex = startVertex;
+        Vertex parentVertex = startVertex;
 
         Queue<Vertex> queue = new ArrayDeque();
         visitVertex(currentVertex, queue);
 
         while (!queue.isEmpty()) {
-            currentVertex = getAdjUnvisitedVertex(queue.peek());
+            parentVertex = queue.peek();
+            currentVertex = getAdjUnvisitedVertex(parentVertex);
+            if (currentVertex == endVertex) {
+                for (LinkedList list : cuts) {
+                    if (list.indexOf(parentVertex) != -1)
+                        list.add(currentVertex);
+                }
+                break;
+            }
 
             if (currentVertex == null) {
-                cut.add(queue.remove());
-                if (cut.peekLast() == endVertex) {
-                    break;
-                }
+                queue.remove();
             }
             else {
                 visitVertex(currentVertex, queue);
+                for (LinkedList list : cuts) {
+
+                    if (parentVertex == startVertex) {
+                        cuts.add(new LinkedList());
+                        cuts.getLast().add(startVertex);
+                    } else {
+                        if (list.indexOf(parentVertex) != -1)
+                            list.add(currentVertex);
+                        else {
+                            cuts.add(new LinkedList());
+                            cuts.getLast().add(parentVertex);
+                            cuts.getLast().add(currentVertex);
+                        }
+                    }
+                }
             }
         }
         clearVertexes();
-        return cut;
+        for (LinkedList list : cuts) {
+            System.out.println("--------");
+            System.out.println(list);
+            if (list.indexOf(endVertex) != -1)
+                bestList = list;
+        }
+        return bestList;
     }
 
 }
