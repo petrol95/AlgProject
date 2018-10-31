@@ -194,12 +194,8 @@ public class Graph {
                     }*/
                     cuts.add(new LinkedList());
                     // cuts.getLast().addAll(tempList);
-                    if (parentLabel == startLabel) {
-                        cuts.getLast().add(parentLabel);
-                        cuts.getLast().add(currentLabel);
-                    } else {
-
-                    }
+                    cuts.getLast().add(parentLabel);
+                    cuts.getLast().add(currentLabel);
                 }
                 visitVertex(currentVertex, queue);
             }
